@@ -1,6 +1,6 @@
 using AlgorithmClassLibrary;
 
-namespace AlgorithmClassLibraryTests
+namespace AlgorithmClassLibrary.Tests
 {
     public class AnagramComparatorTests
     {

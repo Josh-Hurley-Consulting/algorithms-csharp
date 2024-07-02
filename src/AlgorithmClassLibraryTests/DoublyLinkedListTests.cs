@@ -1,7 +1,7 @@
 using AlgorithmClassLibrary;
 using System.Text;
 
-namespace AlgorithmClassLibraryTests
+namespace AlgorithmClassLibrary.Tests
 {
     public class DoublyLinkedListTests
     {
