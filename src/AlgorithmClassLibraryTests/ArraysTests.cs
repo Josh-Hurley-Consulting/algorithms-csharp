@@ -108,5 +108,37 @@ namespace AlgorithmClassLibrary.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        ///         "ace" is a subsequence of "abcde" while "aec" is not.
+
+        [Fact()]
+        public void IsSubsequenceTest_CharsTogether_ShouldReturnTrue()
+        {
+            Assert.True(Arrays.IsSubsequence("ab", "abcde"));
+        }
+
+        [Fact()]
+        public void IsSubsequenceTest_CharsSeparated_ShouldReturnTrue()
+        {
+            Assert.True(Arrays.IsSubsequence("ace", "abcde"));
+        }
+
+        [Fact()]
+        public void IsSubsequenceTest_CharsWrongOrdcer_ShouldReturnFalse()
+        {
+            Assert.False(Arrays.IsSubsequence("aec", "abcde"));
+        }
+
+        [Fact()]
+        public void IsSubsequenceTest_NoSharedChars_ShouldReturnFalse()
+        {
+            Assert.False(Arrays.IsSubsequence("xyz", "abcde"));
+        }
+
+        [Fact()]
+        public void IsSubsequenceTest_OneSharedChars_ShouldReturnFalse()
+        {
+            Assert.False(Arrays.IsSubsequence("az", "abcde"));
+        }
     }
 }

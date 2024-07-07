@@ -137,5 +137,45 @@ namespace AlgorithmClassLibrary
 
             return combined;
         }
+
+
+        /// <summary>
+        /// Given two strings (sub and main), return true if sub is a subsequence of main, or false otherwise. 
+        ////    Notes:
+        ///         * The letters of sub don't need to be group together or in the same order. 
+        ///         * A subsequence of a string is a sequence of characters that can be obtained by deleting some (or none) of the characters from the original string, 
+        ///           while maintaining the relative order of the remaining characters. For example, "ace" is a subsequence of "abcde" while "aec" is not.
+        ///         * Both sub and main are in sort order
+        /// </summary>
+        /// <param name="sub">Substring string</param>
+        /// <param name="main">Maine string</param>
+        /// <returns>True if sub is a subsequence of main, else false</returns>
+        /// <remarks>
+        /// Big O: 
+        /// * Time Complexity: O(n) Linear, as number of elements grow, the runtime grows linearly 
+        /// * Space complexity:  O(1) - Constant, memory requirements doesn't signficantly grow based on input
+        /// 
+        /// See for more detail:
+        /// https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4501/
+        /// </remarks>
+        public static bool IsSubsequence(string sub, string main) 
+        {
+            var subIndex = 0;
+            var mainIndex = 0;
+
+            // move one or both indexes while testing, only works if both values are sorted 
+            while(subIndex < sub.Length && mainIndex < main.Length)
+            {
+                if (sub[subIndex] == main[mainIndex])
+                {
+                    subIndex++;
+                }
+                mainIndex++;
+            }
+
+            // test if all values have been searched by see if subIndex has been incremented more one more so that it matches length
+            return subIndex == sub.Length;
+        }
+
     }
 }
