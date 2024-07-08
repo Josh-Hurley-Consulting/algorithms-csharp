@@ -140,5 +140,17 @@ namespace AlgorithmClassLibrary.Tests
         {
             Assert.False(Arrays.IsSubsequence("az", "abcde"));
         }
+
+        [Fact()]
+        public void LongestSubArray_ShouldReturn4() 
+        {
+            Assert.Equal(4, Arrays.LongestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8));
+        }
+
+        [Fact()]
+        public void LongestSubArray_ShouldReturn0()
+        {
+            Assert.Equal(0, Arrays.LongestSubArray([3, 2, 2, 7, 4, 2, 5, 7, 5], 1));
+        }
     }
 }

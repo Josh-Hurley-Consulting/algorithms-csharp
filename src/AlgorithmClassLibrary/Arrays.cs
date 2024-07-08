@@ -177,5 +177,39 @@ namespace AlgorithmClassLibrary
             return subIndex == sub.Length;
         }
 
+        /// <summary>
+        /// Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. 
+        /// </summary>
+        /// <param name="ints">ints int[]</param>
+        /// <param name="max">max int</param>
+        /// <returns>The length of longest subarray</returns>
+        /// <remarks>
+        /// Big O: 
+        /// * Time Complexity: 
+        /// * Space complexity:  O(1) - Constant, memory requirements doesn't signficantly grow based on input
+        /// 
+        /// See for more detail:
+        /// https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4502/
+        /// </remarks>
+        public static int LongestSubArray(int[] ints, int max)
+        {
+            var leftIndex = 0;
+            var currentValue = 0;
+            var largestSize = 0;
+
+            for (int rightIndex = 0; rightIndex < ints.Length; rightIndex++)
+            {
+                currentValue += ints[rightIndex];
+                while (currentValue > max)
+                {
+                    currentValue -= ints[leftIndex];
+                    leftIndex++;
+                }
+
+                largestSize = Math.Max(largestSize, rightIndex - leftIndex +1);
+            }
+
+            return largestSize;
+        }
     }
 }
